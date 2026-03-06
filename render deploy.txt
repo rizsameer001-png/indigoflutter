@@ -1,0 +1,99 @@
+New-
+Root Directory
+npm install
+npm start or npm run dev
+
+ Server running on port 10000
+https://indigoflutter.onrender.com/api/health
+{
+  "success": true,
+  "message": "IndiGo Clone API is running",
+  "version": "1.0.0",
+  "timestamp": "2026-03-06T19:05:47.400Z"
+}
+
+///--Client
+1.Get Your Render Backend URL
+http://localhost:5000/api/login 
+In Render dashboard open your service.
+Replace it with your Render URL:
+https://indigoflutter.onrender.com
+2
+Replace Localhost API in Your Frontend
+
+https://indigoflutter.onrender.com/
+
+3.
+Your Axios setup is already good. You only need to point it to your deployed backend (https://indigoflutter.onrender.com
+) instead of localhost when running the frontend on port 3000.
+
+REACT_APP_API_URL=https://indigoflutter.onrender.com/api
+npm start
+-------------------------------------
+Your backend is already deployed at https://indigoflutter.onrender.com
+ on Render.
+Now you want your local frontend running on port 3000 to connect to that server.
+
+Follow this simple setup.
+
+1️⃣ Set API Base URL in Your Frontend
+
+Inside your frontend code (React or similar), create a base URL:
+
+Example API call:
+const API_BASE_URL = "https://indigoflutter.onrender.com";
+
+fetch(`${API_BASE_URL}/api/login`, {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify(data)
+});
+
+--------------------------------
+4
+Handle CORS in Backend
+
+If frontend runs on localhost:3000, backend must allow it.
+
+Install CORS:
+
+npm install cors
+---------------------------------------------------------------------------------
+//client change vite
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+export default defineConfig(({ mode }) => {
+  const isDev = mode === "development";
+
+  return {
+    plugins: [react()],
+    server: {
+      port: 3000,
+      proxy: {
+        '/api': {
+          target: 'https://ecom-9ygt.onrender.com',
+          changeOrigin: true,
+          secure: true,
+        },
+      },
+    },
+  };
+});
+------------------------------------------------------------------------------
+
+note-pls check
+
+Open your React project
+
+Go to:
+
+client/package.json
+
+Find the proxy line.
+
+It probably looks like:
+
+"proxy": "http://localhost:5000"
