@@ -1,0 +1,101 @@
+.search-box {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+  overflow: visible;
+}
+
+.trip-type-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 0 20px;
+}
+.trip-tab {
+  padding: 14px 20px;
+  background: none; border: none;
+  font-size: 14px; font-weight: 500;
+  color: #6b7280; cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px; transition: all 0.2s;
+}
+.trip-tab.active { color: #0052a5; border-bottom-color: #0052a5; font-weight: 600; }
+.trip-tab:hover { color: #0052a5; }
+
+.search-form { padding: 20px; }
+.search-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.search-field {
+  flex: 1;
+  min-width: 140px;
+  position: relative;
+}
+.search-field-narrow { flex: 0 0 120px; min-width: 100px; }
+
+.search-field label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #6b7280;
+  margin-bottom: 6px;
+  display: flex; align-items: center; gap: 4px;
+}
+.search-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a2e;
+  transition: all 0.2s;
+  background: #f9fafb;
+}
+.search-input:focus { outline: none; border-color: #0052a5; background: white; box-shadow: 0 0 0 3px rgba(0,82,165,0.08); }
+.city-sub { font-size: 11px; color: #9ca3af; display: block; margin-top: 2px; }
+
+.swap-btn {
+  background: #f0f6ff; border: 1.5px solid #dbeafe;
+  width: 36px; height: 36px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; color: #0052a5; font-size: 13px;
+  transition: all 0.2s; flex-shrink: 0; margin-bottom: 2px;
+}
+.swap-btn:hover { background: #0052a5; color: white; transform: rotate(180deg); }
+
+.search-btn { flex-shrink: 0; height: 44px; min-width: 110px; font-size: 15px; }
+
+/* Airport dropdown */
+.airport-dropdown {
+  position: absolute;
+  top: 100%; left: 0; right: 0;
+  background: white;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 10px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+  z-index: 100;
+  overflow: hidden;
+  margin-top: 4px;
+}
+.airport-option {
+  display: flex; align-items: center; gap: 12px;
+  padding: 10px 14px; cursor: pointer; transition: background 0.15s;
+}
+.airport-option:hover { background: #f0f6ff; }
+.apt-code { font-weight: 800; font-size: 15px; color: #0052a5; min-width: 36px; }
+.apt-city { font-size: 13px; font-weight: 600; color: #1a1a2e; }
+.apt-name { font-size: 11px; color: #9ca3af; }
+
+@media (max-width: 768px) {
+  .search-row { flex-direction: column; }
+  .search-field, .search-field-narrow { min-width: 100%; flex: 1; }
+  .swap-btn { transform: rotate(90deg); }
+  .search-btn { width: 100%; }
+}

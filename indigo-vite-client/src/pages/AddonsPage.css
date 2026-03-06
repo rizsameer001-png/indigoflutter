@@ -1,0 +1,37 @@
+.addons-page { padding: 30px 20px; }
+.addons-layout { display: grid; grid-template-columns: 1fr 300px; gap: 24px; margin-bottom: 24px; }
+.addons-heading { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+.addons-sub { color: #6b7280; font-size: 14px; margin-bottom: 24px; }
+
+.addon-card {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 20px; background: white;
+  border: 1.5px solid #e5e7eb; border-radius: 12px;
+  margin-bottom: 12px; cursor: pointer; transition: all 0.2s;
+}
+.addon-card:hover { border-color: #0052a5; }
+.addon-card.selected { border-color: #0052a5; background: #f0f6ff; }
+.addon-left { display: flex; align-items: center; gap: 14px; }
+.addon-icon { font-size: 28px; }
+.addon-title { font-weight: 600; font-size: 15px; display: flex; align-items: center; gap: 8px; }
+.addon-tag { font-size: 10px; background: #0052a5; color: white; padding: 2px 7px; border-radius: 10px; font-weight: 600; }
+.addon-desc { font-size: 12px; color: #6b7280; margin-top: 2px; }
+.addon-right { display: flex; align-items: center; gap: 14px; }
+.addon-price { font-weight: 700; font-size: 16px; color: #0052a5; }
+.addon-price span { font-size: 11px; color: #9ca3af; font-weight: 400; }
+.addon-check {
+  width: 28px; height: 28px; border-radius: 50%;
+  border: 2px solid #e5e7eb;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 700; transition: all 0.2s;
+}
+.addon-check.checked { background: #0052a5; border-color: #0052a5; color: white; }
+
+.price-summary { position: sticky; top: 80px; }
+.price-summary h3 { font-size: 16px; font-weight: 700; margin-bottom: 16px; }
+.summary-row { display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 8px; }
+.summary-row.addon { color: #0052a5; }
+.summary-row.total { font-weight: 700; font-size: 17px; }
+.tax-note { font-size: 11px; color: #9ca3af; margin-top: 8px; }
+
+@media (max-width: 768px) { .addons-layout { grid-template-columns: 1fr; } }
