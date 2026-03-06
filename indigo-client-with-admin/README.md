@@ -1,3 +1,11 @@
+client
+ ├── src
+ ├── public
+ ├── package.json
+ └── .env
+
+
+
 # ✈️ IndiGo Clone - React Frontend
 
 A full-featured IndiGo Airlines clone built with React.js.

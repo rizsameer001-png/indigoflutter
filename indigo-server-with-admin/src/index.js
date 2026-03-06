@@ -66,10 +66,21 @@ app.use('/api/airports', airportRoutes);
 app.use('/api/offers', offerRoutes);
 app.use('/api/admin', adminRoutes);
 
-// 404 handler
-app.use((req, res) => {
-  res.status(404).json({ success: false, message: 'Route not found' });
+
+const path = require("path");
+
+// Serve React build
+// Serve React
+app.use(express.static(path.join(__dirname, "../client/build")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/build", "index.html"));
 });
+
+// 404 handler
+//app.use((req, res) => {
+ // res.status(404).json({ success: false, message: 'Route not found' });
+//});
 
 // Global error handler
 app.use((err, req, res, next) => {

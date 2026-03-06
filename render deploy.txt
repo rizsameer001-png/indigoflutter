@@ -3,6 +3,8 @@ Root Directory
 npm install
 npm start or npm run dev
 
+npm install && npm run build
+
  Server running on port 10000
 https://indigoflutter.onrender.com/api/health
 {
@@ -97,3 +99,6 @@ Find the proxy line.
 It probably looks like:
 
 "proxy": "http://localhost:5000"
+
+
+npm install && npm run build
