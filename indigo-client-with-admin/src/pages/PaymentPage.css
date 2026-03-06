@@ -1,0 +1,24 @@
+.payment-page { padding: 30px 20px; }
+.payment-layout { display: grid; grid-template-columns: 1fr 300px; gap: 24px; }
+.payment-title { font-size: 20px; font-weight: 700; margin-bottom: 20px; }
+.promo-row { display: flex; gap: 10px; margin-bottom: 8px; }
+.promo-row .form-control { flex: 1; font-family: monospace; font-weight: 700; letter-spacing: 2px; }
+.promo-success { font-size: 13px; color: #22c55e; font-weight: 500; margin-bottom: 16px; }
+.pay-methods { display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0; }
+.pay-method {
+  display: flex; align-items: center; gap: 6px;
+  padding: 10px 16px; border: 1.5px solid #e5e7eb;
+  border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 500;
+  transition: all 0.2s;
+}
+.pay-method input { display: none; }
+.pay-method.active { border-color: #0052a5; background: #f0f6ff; color: #0052a5; }
+.card-form { margin-top: 16px; }
+.pay-note { font-size: 12px; color: #9ca3af; margin-top: 16px; text-align: center; }
+.payment-summary h3 { font-size: 16px; font-weight: 700; margin-bottom: 14px; }
+.booking-flight-info { background: #f0f6ff; border-radius: 10px; padding: 14px; margin-bottom: 14px; }
+.bfi-row { display: flex; align-items: center; gap: 10px; font-size: 18px; }
+.bfi-detail { font-size: 12px; color: #6b7280; margin-top: 4px; }
+.summary-row { display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 8px; }
+.summary-row.total { font-weight: 700; font-size: 17px; }
+@media (max-width: 768px) { .payment-layout { grid-template-columns: 1fr; } }

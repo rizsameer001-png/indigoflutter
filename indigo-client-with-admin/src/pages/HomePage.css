@@ -1,0 +1,107 @@
+.hero {
+  position: relative;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, #0d1b2e 0%, #0052a5 60%, #1a73e8 100%);
+}
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.hero-content {
+  position: relative; z-index: 2;
+  padding: 60px 20px;
+  width: 100%;
+}
+.hero-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 48px; font-weight: 800;
+  color: white; margin-bottom: 12px; line-height: 1.1;
+}
+.hero-title .highlight { color: #ffd700; }
+.hero-subtitle { color: rgba(255,255,255,0.8); font-size: 18px; margin-bottom: 32px; }
+
+/* Quick links */
+.quick-links { transform: translateY(-30px); position: relative; z-index: 10; }
+.quick-links-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  background: white; border-radius: 14px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+  padding: 8px;
+}
+.quick-card {
+  display: flex; align-items: center; gap: 12px;
+  padding: 16px 20px; border-radius: 10px;
+  text-decoration: none; color: inherit;
+  transition: all 0.2s;
+}
+.quick-card:hover { background: #f0f6ff; transform: translateY(-2px); }
+.quick-icon { font-size: 24px; }
+.quick-label { font-weight: 600; font-size: 14px; color: #1a1a2e; }
+.quick-desc { font-size: 11px; color: #9ca3af; }
+
+/* Section headers */
+.section-header { text-align: center; margin-bottom: 36px; }
+.section-header h2 { font-family: 'Poppins', sans-serif; font-size: 28px; font-weight: 700; color: #1a1a2e; }
+.section-header p { color: #6b7280; margin-top: 6px; }
+.view-all { color: #0052a5; font-size: 14px; font-weight: 600; text-decoration: none; }
+
+/* Routes */
+.routes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.route-card {
+  background: white; border: 1.5px solid #e5e7eb;
+  border-radius: 12px; padding: 20px; text-decoration: none;
+  transition: all 0.2s; display: block;
+}
+.route-card:hover { border-color: #0052a5; transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,82,165,0.15); }
+.route-cities { display: flex; align-items: center; gap: 8px; font-size: 17px; font-weight: 700; color: #1a1a2e; }
+.route-arrow { color: #0052a5; font-size: 18px; }
+.route-codes { font-size: 12px; color: #9ca3af; margin: 4px 0; }
+.route-price { font-size: 18px; font-weight: 800; color: #0052a5; }
+
+/* Offers */
+.offers-section { background: #f0f6ff; }
+.offers-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.offer-card {
+  background: white; border-radius: 14px; padding: 24px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  border-left: 4px solid #0052a5;
+  position: relative; overflow: hidden;
+  transition: transform 0.2s;
+}
+.offer-card:hover { transform: translateY(-3px); }
+.offer-badge {
+  position: absolute; top: 16px; right: 16px;
+  background: #0052a5; color: white;
+  font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 4px;
+}
+.offer-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+.offer-card p { font-size: 13px; color: #6b7280; margin-bottom: 12px; }
+.offer-code { font-size: 13px; background: #f5f7fa; padding: 6px 10px; border-radius: 6px; margin-bottom: 8px; display: inline-block; }
+.offer-code strong { color: #0052a5; font-family: monospace; }
+.offer-save { font-size: 13px; color: #22c55e; font-weight: 600; }
+
+/* Features */
+.features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.feature-card {
+  text-align: center; padding: 28px 20px;
+  background: white; border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  transition: transform 0.2s;
+}
+.feature-card:hover { transform: translateY(-4px); }
+.feature-icon { font-size: 36px; margin-bottom: 14px; }
+.feature-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: #1a1a2e; }
+.feature-card p { font-size: 13px; color: #6b7280; line-height: 1.6; }
+
+@media (max-width: 768px) {
+  .hero-title { font-size: 28px; }
+  .quick-links-grid { grid-template-columns: 1fr 1fr; }
+  .routes-grid, .offers-grid, .features-grid { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,70 @@
+.flight-card {
+  background: white;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 16px 20px;
+  transition: all 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.flight-card:hover { border-color: #0052a5; box-shadow: 0 4px 20px rgba(0,82,165,0.12); }
+.flight-card.selected { border-color: #0052a5; background: #f0f6ff; }
+
+.fc-left { min-width: 80px; }
+.fc-airline { display: flex; align-items: center; gap: 8px; }
+.fc-logo {
+  width: 36px; height: 36px;
+  background: linear-gradient(135deg, #0052a5, #1a73e8);
+  color: white; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: 13px;
+}
+.fc-flight-num { font-weight: 600; font-size: 13px; color: #1a1a2e; }
+.fc-aircraft { font-size: 11px; color: #9ca3af; }
+
+.fc-route { display: flex; align-items: center; gap: 16px; flex: 1; }
+.fc-time-block { text-align: center; min-width: 70px; }
+.fc-time { font-size: 20px; font-weight: 700; color: #1a1a2e; line-height: 1; }
+.fc-code { font-size: 13px; font-weight: 600; color: #0052a5; margin-top: 2px; }
+.fc-city { font-size: 11px; color: #9ca3af; }
+
+.fc-middle { flex: 1; text-align: center; }
+.fc-duration { font-size: 11px; color: #6b7280; margin-bottom: 4px; display: flex; align-items: center; justify-content: center; gap: 4px; }
+.fc-arrow { display: flex; align-items: center; position: relative; }
+.fc-line { flex: 1; height: 1.5px; background: #e5e7eb; }
+.fc-plane-icon { color: #0052a5; font-size: 12px; }
+.fc-stops { font-size: 11px; color: #22c55e; font-weight: 500; margin-top: 4px; }
+
+.fc-amenities {
+  display: flex; flex-direction: column; gap: 4px;
+  font-size: 11px; color: #6b7280; min-width: 60px;
+}
+.fc-amenities span { display: flex; align-items: center; gap: 4px; }
+
+.fc-price-block { text-align: right; min-width: 130px; }
+.fc-price { font-size: 22px; font-weight: 800; color: #0052a5; line-height: 1; }
+.fc-price-note { font-size: 11px; color: #9ca3af; margin-bottom: 4px; }
+.fc-seats { font-size: 11px; color: #22c55e; margin-bottom: 8px; }
+.fc-seats.few { color: #ef4444; font-weight: 600; }
+
+.btn-selected { background: #0052a5 !important; color: white !important; }
+
+.fc-status-bar {
+  position: absolute; top: 0; right: 0;
+  padding: 2px 8px; font-size: 10px; font-weight: 600;
+  border-bottom-left-radius: 6px; text-transform: uppercase;
+}
+.status-on-time, .status-scheduled { background: #e8f5e9; color: #2e7d32; }
+.status-delayed { background: #fff3e0; color: #e65100; }
+.status-cancelled { background: #ffebee; color: #c62828; }
+.status-boarding { background: #e3f2fd; color: #0d47a1; }
+
+@media (max-width: 768px) {
+  .flight-card { flex-wrap: wrap; }
+  .fc-left { display: none; }
+  .fc-route { width: 100%; }
+  .fc-price-block { width: 100%; text-align: left; display: flex; align-items: center; gap: 12px; }
+}

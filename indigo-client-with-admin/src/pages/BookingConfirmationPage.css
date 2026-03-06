@@ -1,0 +1,18 @@
+.confirmation-page { padding: 40px 20px; max-width: 700px; }
+.confirm-banner { text-align: center; padding: 40px 20px; }
+.confirm-icon { font-size: 64px; margin-bottom: 16px; }
+.confirm-banner h1 { font-size: 32px; font-weight: 800; color: #1a1a2e; }
+.confirm-banner p { color: #6b7280; margin-top: 8px; font-size: 16px; }
+.pnr-card { margin-bottom: 24px; }
+.pnr-block { text-align: center; padding: 20px; background: #f0f6ff; border-radius: 10px; margin-bottom: 20px; }
+.pnr-label { display: block; font-size: 12px; color: #6b7280; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+.pnr-number { font-size: 36px; font-weight: 900; color: #0052a5; font-family: monospace; letter-spacing: 4px; }
+.flight-confirm-info { font-size: 18px; font-weight: 600; margin-bottom: 14px; }
+.fc-detail { font-size: 13px; color: #6b7280; font-weight: 400; }
+.passengers-list h4 { font-size: 14px; margin-bottom: 8px; }
+.passenger-row { font-size: 14px; padding: 6px 0; border-bottom: 1px solid #f0f0f0; }
+.total-paid { display: flex; justify-content: space-between; font-weight: 700; font-size: 18px; margin-top: 16px; padding-top: 16px; border-top: 1.5px solid #e5e7eb; }
+.confirm-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 32px; }
+.confirm-tips h3 { font-size: 18px; font-weight: 700; margin-bottom: 16px; }
+.tips-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.tip-card { background: white; border-radius: 10px; padding: 14px 16px; font-size: 13px; color: #4b5563; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }

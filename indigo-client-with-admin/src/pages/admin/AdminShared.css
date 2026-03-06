@@ -1,0 +1,120 @@
+/* ── Shared admin utility styles ─────────────────────────────────────────── */
+
+/* Badges */
+.badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; }
+.badge-green  { background: #e8f5e9; color: #2e7d32; }
+.badge-orange { background: #fff8e1; color: #f57f17; }
+.badge-red    { background: #ffebee; color: #c62828; }
+.badge-blue   { background: #e3f2fd; color: #1565c0; }
+.badge-gray   { background: #f3f4f6; color: #6b7280; }
+
+/* Spinner */
+.spinner {
+  width: 36px; height: 36px;
+  border: 3px solid #e5e7eb;
+  border-top-color: #0052a5;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  margin: 0 auto;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; justify-content: center; padding: 9px 18px; border-radius: 8px; border: none; cursor: pointer; font-size: 13px; font-weight: 600; transition: all 0.15s; }
+.btn-primary  { background: #0052a5; color: white; }
+.btn-primary:hover { background: #003a7d; }
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn-secondary { background: #f3f4f6; color: #374151; border: 1.5px solid #e5e7eb; }
+.btn-secondary:hover { background: #e5e7eb; }
+.btn-danger   { background: #ef4444; color: white; }
+.btn-danger:hover { background: #c62828; }
+.btn-sm       { padding: 6px 12px; font-size: 12px; }
+.btn-block    { width: 100%; }
+.btn-lg       { padding: 12px 24px; font-size: 15px; }
+
+/* Forms */
+.form-group   { margin-bottom: 14px; }
+.form-label   { display: block; font-size: 12px; font-weight: 700; color: #374151; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.4px; }
+.form-control {
+  width: 100%; padding: 9px 12px;
+  border: 1.5px solid #e5e7eb; border-radius: 8px;
+  font-size: 13px; color: #1a1a2e;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+  background: white;
+  outline: none;
+}
+.form-control:focus { border-color: #0052a5; box-shadow: 0 0 0 3px rgba(0,82,165,0.1); }
+.form-section-title {
+  font-size: 12px; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 1px; color: #0052a5;
+  margin: 20px 0 12px; padding-bottom: 6px;
+  border-bottom: 2px solid #e8f0fb;
+}
+
+/* Detail modal */
+.detail-section { margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px solid #f3f4f6; }
+.detail-section:last-child { border-bottom: none; margin-bottom: 0; }
+.detail-title { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.6px; color: #9ca3af; margin-bottom: 8px; }
+.detail-row { display: flex; align-items: center; gap: 12px; font-size: 14px; font-weight: 600; }
+
+/* User edit */
+.user-edit-info { display: flex; align-items: center; gap: 14px; padding: 14px; background: #f9fafb; border-radius: 10px; }
+.user-edit-avatar {
+  width: 46px; height: 46px; border-radius: 50%; flex-shrink: 0;
+  background: linear-gradient(135deg, #0052a5, #1a73e8);
+  color: white; display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: 16px;
+}
+
+/* Offers grid */
+.offers-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; }
+
+.offer-admin-card {
+  background: white; border-radius: 14px;
+  border: 1.5px solid #e5e7eb;
+  overflow: hidden; transition: all 0.2s;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+.offer-admin-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.1); transform: translateY(-2px); }
+.offer-admin-card.inactive { opacity: 0.6; }
+
+.offer-card-top {
+  background: linear-gradient(135deg, #0d1b2e, #0052a5);
+  padding: 16px 16px 14px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.offer-discount-badge {
+  background: #ffd700; color: #0d1b2e;
+  font-size: 15px; font-weight: 900;
+  padding: 6px 14px; border-radius: 20px;
+  letter-spacing: 0.5px;
+}
+.offer-card-actions { display: flex; align-items: center; gap: 8px; }
+.offer-toggle-btn { background: none; border: none; cursor: pointer; display: flex; align-items: center; padding: 4px; transition: transform 0.2s; }
+.offer-toggle-btn:hover { transform: scale(1.1); }
+
+.offer-card-body { padding: 16px; }
+.offer-title { font-size: 15px; font-weight: 700; color: #1a1a2e; margin-bottom: 4px; }
+.offer-desc  { font-size: 12px; color: #6b7280; margin-bottom: 12px; line-height: 1.4; }
+
+.offer-code-row { display: flex; align-items: center; justify-content: space-between; }
+.offer-code {
+  background: #f0f6ff; color: #0052a5;
+  padding: 6px 12px; border-radius: 6px;
+  font-family: monospace; font-size: 15px; font-weight: 800;
+  letter-spacing: 2px; border: 1.5px dashed #b3d1f7;
+}
+.offer-status { font-size: 11px; font-weight: 700; }
+.offer-status.active   { color: #22c55e; }
+.offer-status.inactive { color: #9ca3af; }
+
+.offer-card-footer {
+  padding: 12px 16px;
+  background: #f9fafb;
+  border-top: 1px solid #f3f4f6;
+  display: flex; gap: 16px; flex-wrap: wrap;
+}
+.offer-meta-item { display: flex; flex-direction: column; gap: 2px; }
+.meta-label { font-size: 10px; font-weight: 700; text-transform: uppercase; color: #9ca3af; letter-spacing: 0.3px; }
+.meta-value { font-size: 13px; font-weight: 600; color: #374151; }

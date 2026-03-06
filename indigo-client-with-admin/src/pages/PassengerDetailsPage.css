@@ -1,0 +1,7 @@
+.pax-page { padding: 30px 20px; max-width: 860px; }
+.pax-card { margin-bottom: 20px; }
+.pax-title { font-size: 16px; font-weight: 700; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+.pax-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.contact-note { font-size: 13px; color: #6b7280; margin-bottom: 14px; }
+.pax-actions { display: flex; justify-content: space-between; margin-top: 24px; }
+@media (max-width: 768px) { .pax-grid { grid-template-columns: 1fr 1fr; } }
