@@ -36,14 +36,35 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 // CORS
+// app.use(cors({
+//   origin: [
+//     process.env.CLIENT_URL || 'http://localhost:3000',
+//     'http://localhost:5173',   // Vite default port
+//     'http://localhost:4173',   // Vite preview port
+//   ],
+//   credentials: true,
+// }));
+const allowedOrigins = [
+  process.env.CLIENT_URL,
+  'https://indigovite.onrender.com',
+  'http://localhost:5173',
+  'http://localhost:4173'
+];
+
 app.use(cors({
-  origin: [
-    process.env.CLIENT_URL || 'http://localhost:3000',
-    'http://localhost:5173',   // Vite default port
-    'http://localhost:4173',   // Vite preview port
-  ],
-  credentials: true,
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true);
+
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    } else {
+      return callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true
 }));
+
+app.options('*', cors());
 
 // Body parsing
 app.use(express.json({ limit: '10mb' }));
