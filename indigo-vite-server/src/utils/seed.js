@@ -53,7 +53,8 @@ const generateFlights = () => {
         const priceVariance = 1 + (hi * 0.1);
 
         flights.push({
-          flightNumber: `6E${100 + ri * 10 + hi}`,
+          //flightNumber: `6E${100 + ri * 10 + hi}`,
+          flightNumber: `6E${100 + ri * 10 + hi}-${day}`,
           origin: { code: route.from, city: route.fromCity, airport: route.fromAirport, terminal: 'T2' },
           destination: { code: route.to, city: route.toCity, airport: route.toAirport, terminal: 'T1' },
           departureTime: depTime,

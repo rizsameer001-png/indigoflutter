@@ -18,7 +18,7 @@ const EMPTY_FLIGHT = {
     business: { base: '', taxes: '' }
   },
   seats: {
-    total: { economy: 180, business: 18 },
+    total: 198,
     available: { economy: 180, business: 18 }
   }
 };
@@ -49,10 +49,21 @@ export default function AdminFlightsPage() {
 
   const openCreate = () => { setForm(JSON.parse(JSON.stringify(EMPTY_FLIGHT))); setModal('create'); };
   const openEdit   = (f) => {
+    // Normalise seats from API response — seats.total may be a Number or legacy Object
+    const totalSeats = typeof f.seats?.total === 'number'
+      ? f.seats.total
+      : (f.seats?.available?.economy || 150) + (f.seats?.available?.business || 18);
     setForm({
       ...f,
       departureTime: f.departureTime?.slice(0,16) || '',
       arrivalTime:   f.arrivalTime?.slice(0,16)   || '',
+      seats: {
+        total: totalSeats,
+        available: {
+          economy:  f.seats?.available?.economy  ?? 150,
+          business: f.seats?.available?.business ?? 18,
+        },
+      },
     });
     setModal('edit');
   };
@@ -74,11 +85,37 @@ export default function AdminFlightsPage() {
     }
     setSaving(true);
     try {
+      // Normalise seats: the Mongoose schema stores seats.total as a single Number
+      // (total capacity) and seats.available as { economy, business }.
+      // The EMPTY_FLIGHT accidentally had seats.total as { economy, business } — fix it here.
+      const econSeats = typeof form.seats?.available?.economy === 'number'
+        ? form.seats.available.economy : 150;
+      const bizSeats  = typeof form.seats?.available?.business === 'number'
+        ? form.seats.available.business : 18;
+      const totalSeats = typeof form.seats?.total === 'number'
+        ? form.seats.total
+        : (econSeats + bizSeats);
+
+      const payload = {
+        ...form,
+        seats: {
+          total: totalSeats,
+          available: { economy: econSeats, business: bizSeats },
+        },
+        // Ensure numeric fields are numbers, not strings
+        duration: Number(form.duration) || 0,
+        stops: Number(form.stops) || 0,
+        price: {
+          economy:  { base: Number(form.price?.economy?.base)  || 0, taxes: Number(form.price?.economy?.taxes)  || 0 },
+          business: { base: Number(form.price?.business?.base) || 0, taxes: Number(form.price?.business?.taxes) || 0 },
+        },
+      };
+
       if (modal === 'create') {
-        await adminCreateFlight(form);
+        await adminCreateFlight(payload);
         toast.success('Flight created ✓');
       } else {
-        await adminUpdateFlight(form._id, form);
+        await adminUpdateFlight(form._id, payload);
         toast.success('Flight updated ✓');
       }
       setModal(null);
@@ -167,7 +204,7 @@ export default function AdminFlightsPage() {
                     </td>
                     <td style={{ fontSize: 12 }}>
                       <span style={{ color: '#22c55e', fontWeight: 600 }}>{f.seats?.available?.economy}</span>
-                      <span style={{ color: '#9ca3af' }}> / {f.seats?.total?.economy}</span>
+                      <span style={{ color: '#9ca3af' }}> / {typeof f.seats?.total === 'number' ? f.seats.total : '—'}</span>
                     </td>
                     <td>
                       <span className="badge" style={{
